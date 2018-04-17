@@ -334,7 +334,7 @@ test_error2(#{@test_class}):
     assert_equal empty, @a.files_to_test
 
     s3 = '
-/opt/bin/ruby -I.:lib:test -rubygems -e "%w[test/unit #{@test}].each { |f| require f }" | unit_diff -u
+/opt/bin/ruby -I.:lib:test -rrubygems -e "%w[test/unit #{@test}].each { |f| require f }" | unit_diff -u
 -e:1:in `require\': ./#{@test}:23: parse error, unexpected tIDENTIFIER, expecting \'}\' (SyntaxError)
     settings_fields.each {|e| assert_equal e, version.send e.intern}
                                                             ^   from -e:1
